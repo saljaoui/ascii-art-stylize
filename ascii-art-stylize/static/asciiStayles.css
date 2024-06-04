@@ -1,0 +1,67 @@
+.container1 {
+
+
+
+
+
+  color: aliceblue;
+  border-radius: 10px;
+  padding: 25px 30px;
+  max-width: 95%;
+
+
+
+}
+
+.container1 #outputBox {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: aliceblue;
+  border-radius: 10px;
+  padding: 25px 30px;
+  max-width: 100%;
+  overflow: auto;
+  max-height: 80vh; /* Adjust this value as needed */
+  overflow-y: auto; /* Enable vertical scrolling if necessary */
+
+
+
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.button_back {
+  width: 450px;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+
+body {
+  background-image: url("/static/soso.jpeg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
