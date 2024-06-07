@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url("/static/ERROR.jpeg");
+    background-color: rgba(98,158,254,1);
     background-repeat: no-repeat; /* Prevents the background image from repeating */
   background-size: cover; /* Ensures the background image covers the entire element */
   background-position: center;
@@ -20,7 +20,7 @@ body {
 
 
 .button {
-    width: 450px;
+    width: 150px;
     height: 45px;
     background: #fff;
     border: none;

@@ -1,16 +1,27 @@
+
+
+@font-face {
+  font-family: myFont;
+  src: url(SoufianFont.otf)
+}
+
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: medium;
+  font-family: myFont;
+  margin-bottom: 1%;
+
+}
+
 .container1 {
-
-
-
-
-
   color: aliceblue;
   border-radius: 10px;
-  padding: 25px 30px;
+  padding: 13px 30px;
   max-width: 95%;
-
-
-
 }
 
 .container1 #outputBox {
@@ -25,9 +36,6 @@
   overflow: auto;
   max-height: 80vh; /* Adjust this value as needed */
   overflow-y: auto; /* Enable vertical scrolling if necessary */
-
-
-
 }
 
 
@@ -36,8 +44,10 @@
   margin: 0;
 }
 
+
+
 .button_back {
-  width: 450px;
+  width: 150px;
   height: 45px;
   background: #fff;
   border: none;
@@ -55,15 +65,27 @@
 }
 
 body {
-  background-image: url("/static/soso.jpeg");
+  background-image: url("https://img.freepik.com/free-vector/abstract-geometric-shapes-background_23-2148335332.jpg?t=st=1717579119~exp=1717582719~hmac=7b99bb605d1724ee4a0e59de3eff6e757bf48e2471e02f145512039640823736&w=1380");
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-repeat: no-repeat;
-  /* Prevents the background image from repeating */
   background-size: cover;
-  /* Ensures the background image covers the entire element */
   background-position: center;
-
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+ ::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+ }
+ ::-webkit-scrollbar-thumb {
+  background: linear-gradient( rgba(0,98,249,1) , rgba(98,158,254,1) )  ;
+  border-radius: 10px;
+ }
+

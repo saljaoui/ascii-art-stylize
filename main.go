@@ -11,12 +11,14 @@ import (
 
 var (
 	tmpl *template.Template
-	Port = "7970"
+	Port = "9579"
 )
 
 type FormData struct {
 	ErrorMsg string
+	Output string
 }
+var data FormData
 
 
 
@@ -30,14 +32,17 @@ func main() {
 		fmt.Printf("Error parsing templates: %v \n", err)
 		return
 	}
-
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	
 	http.HandleFunc("/", index)
 	http.HandleFunc("/ascii-art", processor)
 	log.Fatal(http.ListenAndServe(":"+Port, nil))
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
+
+
+
 	if r.Method != http.MethodGet {
 		http.Error(w, "Bad Request: Only GET method is allowed", http.StatusMethodNotAllowed)
 		return
@@ -54,41 +59,52 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func processor(w http.ResponseWriter, r *http.Request) {
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Bad Request: Only POST method is allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	var data FormData
+	
 	input := r.PostFormValue("inputTextName")
+	if len(input) > 15000 {
+		data.ErrorMsg = "There are a lot of data."
+		w.WriteHeader(http.StatusBadRequest)
+		tmpl.ExecuteTemplate(w, "index.html", data)
+		return
+	}
 
 	if !ascii.ScanInput(input) {
-		data.ErrorMsg = "Input contains invalid characters"
+		data.ErrorMsg = "Invalid input format."
 		w.WriteHeader(http.StatusBadRequest)
 		tmpl.ExecuteTemplate(w, "index.html", data)
 		return
 	}
 
 	if input == "" {
-		data.ErrorMsg = "Input Is Empty"
+		data.ErrorMsg = "Empty input."
 		w.WriteHeader(http.StatusBadRequest)
 		tmpl.ExecuteTemplate(w, "index.html", data)
+		
 		return
 	}
 
 	banners := r.PostFormValue("Banners")
 	if !ascii.IsBanners(banners) {
+
 		http.Error(w, "Bad Request: 400 Something went wrong (╯°□°)╯!", http.StatusBadRequest)
 		return
 	}
-
-	output, err := ascii.GenerateAsciiArt(input, banners)
+	var err error
+	data.Output, err = ascii.GenerateAsciiArt(input, banners)
 	if err != nil {
 		http.Error(w, "Internal Server Error: 500 Something went wrong (╯°□°)╯!", http.StatusInternalServerError)
 		return
 	}
+	
 
-	err = tmpl.ExecuteTemplate(w, "ascii-art.html", output)
+	err = tmpl.ExecuteTemplate(w, "ascii-art.html", data)
 	if err != nil {
 		http.Error(w, "Internal Server Error: 500 Something went wrong (╯°□°)╯! ", http.StatusInternalServerError)
 	}
+	
 }
