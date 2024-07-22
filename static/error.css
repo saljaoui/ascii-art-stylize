@@ -48,3 +48,37 @@ h2 {
 
 }
 
+button {
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 300ms ;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%; /* Start from the middle */
+  transform: translateX(-50%); /* Center horizontally */
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 300ms /* Sync with button hover */
+}
+
+button:hover {
+  color: #fff;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27); /* Ensure box-shadow remains consistent */
+}
+
+button:hover::before {
+  width: 100%; /* Expand beyond the button width */
+  transform: translateX(-50%); /* Center the expansion */
+}

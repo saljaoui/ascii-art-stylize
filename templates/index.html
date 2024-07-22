@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon"  href="../static/01icon.png">
-        <link rel="stylesheet" href="/static/styles.css">
-        <title>Ascii Art | Home Page</title>
-    </head>
 
-    <body>
-        
-        
-        <div class="soufian">
-            <h1 class="title">ASCII ART</h1>
-            <div class="container">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/imgs/01icon.png">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Ascii Art | Home Page</title>
+</head>
 
-          
+<body>
+
+
+    <div class="soufian">
+        <h1 class="title">ASCII ART WEB</h1>
+        <div class="container">
+    
+
             <div class="box" id="inputBox">
-                <img src="/static/icon.png" alt="icon Zone 01 Oujda" class="icon">
-                
+                <img src="/static/imgs/icon.png" alt="icon Zone 01 Oujda" class="icon">
+
                 <form action="/ascii-art" method="post">
-                    
+
                     <textarea id="inputText" name="inputTextName" placeholder="Enter your input..."></textarea>
-                    
-                            <div class="error">{{.ErrorMsg}}</div>
-                        
+
+                    <div class="error">{{.ErrorMsg}}</div>
+
                     <ul id="checkFont">
                         <select name="Banners" id="selectOption" class="center-select">
-                            <option value="soufian">Soufian</option>
+                            <option value="soufian">3D Standard</option>
                             <option value="standard">Standard</option>
                             <option value="shadow">Shadow</option>
                             <option value="thinkertoy">Thinkertoy</option>
-                            
+
                         </select>
                         <br>
                         <button id="submitBoutton" class="button" role="button">submit</button>
@@ -39,7 +40,8 @@
                 </form>
             </div>
         </div>
-        </div>
+    </div>
 
-    </body>
+</body>
+
 </html>
