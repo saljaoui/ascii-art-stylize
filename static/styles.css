@@ -56,6 +56,7 @@ body {
   margin-bottom: 25px;
   font-size: 37px;
   font-family: myFont;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
 }
 
 /* Input Styles */
