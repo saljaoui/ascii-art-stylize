@@ -32,7 +32,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("https://i.ibb.co/xJM1QbP/soso.png") no-repeat center/cover;
+  background: url("/static/imgs/soso.png") no-repeat center/cover;
   font-family: "Poppins", sans-serif; /* Default font family */
 }
 
